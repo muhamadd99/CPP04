@@ -1,6 +1,6 @@
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ex01
+FLAGS =  -Werror -Wall -Wextra -std=c++98
+NAME = ex02
 
 SRC = main.cpp \
 		Animal.cpp \

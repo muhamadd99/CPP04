@@ -6,7 +6,7 @@
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 07:15:01 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/01 22:35:19 by mbani-ya         ###   ########.fr       */
+/*   Updated: 2025/11/02 15:22:11 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ int main()
 	delete j;//should not create a leak
  	delete i;
 	
-	// // This will now cause COMPILE ERROR (good!):
-    // Animal animal_ex02;  // ERROR: cannot instantiate abstract class
+	// This will cause COMPILE ERROR on Abstract class:
+	// std::cout << "\n=== NOT ABSTRACT TEST ===" << std::endl;	
+    // Animal animal_ex02;  // still okay here despite error in abstract
 	
-	std::cout << "=== CREATING ARRAY ===" << std::endl;
+	std::cout << "\n=== CREATING ARRAY ===" << std::endl;
 	const int ARRAY_SIZE = 4;
 	Animal* animals[ARRAY_SIZE];
 	
@@ -58,6 +59,14 @@ int main()
     std::cout << "Dog1 idea 1: " << dog1->getBrain()->getIdea(1) << std::endl;
     std::cout << "Dog2 idea 1: " << dog2->getBrain()->getIdea(1) << std::endl;
 
+	// std::cout << "\n=== 🧪 TESTING COPY BEHAVIOR ===" << std::endl;
+	
+	// Test 1: Check if brains are the same memory address
+	std::cout << "\n=== MEMORY ADDRESS TEST ===" << std::endl;
+	std::cout << "Dog1 brain address: " << dog1->getBrain() << std::endl;
+	std::cout << "Dog2 brain address: " << dog2->getBrain() << std::endl;
+	std::cout << "Same address? " << (dog1->getBrain() == dog2->getBrain() ? "YES ❌ SHALLOW COPY" : "NO ✅ DEEP COPY") << std::endl;
+	
 	std::cout << "=== DELETING ARRAY OF ANIMALS===" << std::endl;
 	for (int k = 0; k < ARRAY_SIZE; k++)
 	{

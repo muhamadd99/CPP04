@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 11:42:37 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/02 15:17:43 by mbani-ya         ###   ########.fr       */
+/*   Created: 2025/11/01 23:52:45 by mbani-ya          #+#    #+#             */
+/*   Updated: 2025/11/02 07:27:39 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-class Dog : public Animal {
-private:
-	Brain* brain;
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+
+class Cure : public AMateria {
 public:
-	Dog();
-	Dog(const Dog& other);
-	Dog& operator=(const Dog& other);
-	virtual ~Dog();
-	virtual void makeSound (void) const;
-	Brain *getBrain();
-	const Brain* getBrain() const;
-	// Dog(const Dog& other);                 // Shallow copy (when uncommented)
-    // Dog& operator=(const Dog& other);      // Shallow copy (when uncommented)
+	Cure();
+	virtual ~Cure();
+	Cure(const Cure& other);
+	Cure& operator=(const Cure& other);
+	virtual AMateria* clone() const;
+	virtual void use(ICharacter& target);
 };

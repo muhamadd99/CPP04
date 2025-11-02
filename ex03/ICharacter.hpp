@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 11:42:37 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/02 15:17:43 by mbani-ya         ###   ########.fr       */
+/*   Created: 2025/11/01 23:36:34 by mbani-ya          #+#    #+#             */
+/*   Updated: 2025/11/01 23:43:59 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <string>
 
-class Dog : public Animal {
-private:
-	Brain* brain;
+class AMateria;
+
+class ICharacter{
 public:
-	Dog();
-	Dog(const Dog& other);
-	Dog& operator=(const Dog& other);
-	virtual ~Dog();
-	virtual void makeSound (void) const;
-	Brain *getBrain();
-	const Brain* getBrain() const;
-	// Dog(const Dog& other);                 // Shallow copy (when uncommented)
-    // Dog& operator=(const Dog& other);      // Shallow copy (when uncommented)
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
 };

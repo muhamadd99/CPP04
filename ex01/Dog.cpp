@@ -6,7 +6,7 @@
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 11:42:33 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/01 20:16:35 by mbani-ya         ###   ########.fr       */
+/*   Updated: 2025/11/02 10:44:30 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@ Dog& Dog::operator=(const Dog& other)
 	}
 	return(*this);
 }
+
+// ========== SHALLOW COPY (DANGEROUS - UNCOMMENT TO TEST) ==========
+
+// // ❌ SHALLOW COPY CONSTRUCTOR
+// Dog::Dog(const Dog& other): Animal(other)
+// {
+//     std::cout << "Dog SHALLOW COPY Constructor Called" << std::endl;
+//     brain = other.brain;  // ❌ JUST COPY THE POINTER - SHARES THE SAME BRAIN!
+// }
+
+// // ❌ SHALLOW ASSIGNMENT OPERATOR  
+// Dog& Dog::operator=(const Dog& other)
+// {
+//     std::cout << "Dog SHALLOW COPY Assignment Operator Called" << std::endl;
+//     if (this != &other)
+//     {	
+//         Animal::operator=(other);
+//         // ❌ LEAK: Not deleting old brain!
+//         brain = other.brain;  // ❌ JUST COPY THE POINTER!
+//     }
+//     return(*this);
+// }
+
+// // ========== END SHALLOW COPY ==========
 
 Dog::~Dog()
 {

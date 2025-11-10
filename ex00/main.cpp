@@ -6,7 +6,7 @@
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 07:15:01 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/01 22:06:53 by mbani-ya         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:55:50 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int main()
 	std::cout << "\n=== TESTING POLYMORPHISM ===" << std::endl;
 	std::cout << "Animal say: ";
 	meta->makeSound();
-	std::cout << "Cat say: ";
-	j->makeSound();
 	std::cout << "Dog say: ";
+	j->makeSound();
+	std::cout << "Cat say: ";
 	i->makeSound();
 
 	std::cout << "\n=== TESTING WRONG POLYMORPHISM ===" << std::endl;
